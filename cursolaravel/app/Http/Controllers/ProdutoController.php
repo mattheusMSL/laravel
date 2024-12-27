@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\models\Produto;
 
-class ProdutoController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+class ProdutoController extends Controller{
+   
+    public function index(){
+        $produto = Produto::all();
+        return dd($produto);
     }
 
     /**
