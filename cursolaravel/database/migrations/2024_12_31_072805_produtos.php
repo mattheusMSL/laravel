@@ -18,9 +18,9 @@ return new class extends Migration
             $table->double('preco', 10, 2);
             $table->string('slug');
             $table->string('imagem');
-            $table->unsigedBigInterger('id_user');
+            $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsigedBigInterger('id_categoria');
+            $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
