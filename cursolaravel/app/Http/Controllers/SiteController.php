@@ -5,14 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\models\Produto;
 
-class ProdutoController extends Controller{
-   
+class SiteController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
     public function index(){
-        // $produto = Produto::all();
-        // return dd($produto);
 
         $produtos = Produto::paginate(3);
         return view('site.home', compact('produtos'));
+    }
+    
+    public function details($slug){
+
+        $produto = Produto::where('slug', $slug)->first();
+        //var_dump($produto);
+        return view('site.details', compact('produto'));
     }
 
     /**
@@ -34,8 +42,9 @@ class ProdutoController extends Controller{
     /**
      * Display the specified resource.
      */
-    public function show(string $id){
-        return 'produtoId: '.$id;
+    public function show(string $id)
+    {
+        //
     }
 
     /**
@@ -60,13 +69,5 @@ class ProdutoController extends Controller{
     public function destroy(string $id)
     {
         //
-    }
-
-    public function iphone(){
-        return view('produto', [
-            'productName' => 'iphone 16 pro',
-            'price' => '6000,00', 
-            'productImg' => 'public/products/iphone-16-pro'
-           ]);
     }
 }
