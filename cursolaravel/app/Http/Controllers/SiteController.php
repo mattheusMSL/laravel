@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use \App\models\Produto;
+use \App\models\Categoria;
 
 class SiteController extends Controller
 {
@@ -22,6 +24,13 @@ class SiteController extends Controller
         //var_dump($produto);
         return view('site.details', compact('produto'));
     }
+
+    public function categoria($id){
+        $categoria = Categoria::find($id);
+        $produto = Produto::where('id_categoria', $id)->paginate(3);
+        return view('site.categoria', compact('produtos', 'categoria'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -16,9 +16,8 @@ class ProdutoFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
-    {
-        $name = $this->faker->unique()->name();
+    public function definition(): array {
+      $name = $this->faker->unique()->name();
         return [
             'nome' => $name,
             'descricao' => $this->faker->paragraph(),

@@ -3,6 +3,7 @@
 @section('conteudo')
 
 <div class="row container">
+  <h5>Categoria:{{ $categoria->name}}</h5>
   @foreach ($produtos as $produto)
   <div class="col s12 m4">
     <div class="card">
@@ -19,9 +20,8 @@
   @endforeach
 </div>
 
-<div class="row center-align">
-  {{ $produtos->links('') }}
+<div class="row">
+  {{ $produtos->links('custom-pagination') }}
 </div>
-
 
 @endsection

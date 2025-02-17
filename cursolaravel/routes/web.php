@@ -5,26 +5,7 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SiteController;
 
 Route::resource('produtos', ProdutoController::class);
+
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/protudo/{slug}', [SiteController::class, 'details'])->name('site.details');
-
-// Route::name('produto.')->group(function (){
-//     Route::get('/', [ProdutoController::class], 'index')->name('index');
-
-//     Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name('show');
-    
-//     Route::get('/iphone', [ProdutoController::class, 'iphone'])->name('iphone');
-// });
-
-
-// Route::get('/produtos', function () {
-//     return view('produto', [
-//      'productName' => 'iphone 16 pro',
-//      'price' => '6000,00', 
-//      'productImg' => 'public/products/iphone-16-pro'
-//     ]);
-// });
-
-// Route::match(['get', 'post'], '/match', function(){
-//     return "Permite acesso apenas para os permitidos";
-// });
+Route::get('/catorgia/{id}', [SiteController::class, 'categoria'])->name('site.categoria');
